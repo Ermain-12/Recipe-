@@ -21,6 +21,20 @@ public class Notes {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	
+	@OneToOne
+	private Recipe recipe;
+	
+	/*
+	 * 	This  @Lob annotation means allow for the storage of a large object (i.e. images, string, video, etc.)
+	 */
+	@Lob
+	private String recipeNotes;
+	
+	
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////// Getters and Setters ////////////////////////////////////////////
 	/**
 	 * @return the id
 	 */
@@ -33,17 +47,6 @@ public class Notes {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	@OneToOne
-	private Recipe recipe;
-	
-	/*
-	 * 	This  @Lob annotation means allow for the storage of a large object (i.e. images, string, video, etc.)
-	 */
-	@Lob
-	private String recipeNotes;
-	
-	
 	
 	/**
 	 * @return the recipe

@@ -7,6 +7,8 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,18 +30,7 @@ public class Recipe {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
+	
 	private String description;
 	private Integer preptime;
 	private Integer cooktime;
@@ -65,6 +56,9 @@ public class Recipe {
 	@Lob
 	private Byte[] image;
 	
+	@Enumerated(value = EnumType.STRING)
+	private Difficulty difficulty;
+	
 	/*
 	 * 	This @OneToOne annotation creates a 1-to-1 relationship between the Notes class and the 
 	 * Recipe class. The CascadeType.ALL means that the Recipe.java class owns the relations (i.e. If
@@ -72,6 +66,26 @@ public class Recipe {
 	 */
 	@OneToOne(cascade = CascadeType.ALL)
 	private Notes notes;
+	
+	
+	
+	
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////// Getters and Setters ////////////////////////////////////////////
+	/**
+	 * @return the id
+	 */
+	public Long getId() {
+		return id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 	/**
 	 * @return the description
 	 */
@@ -180,5 +194,30 @@ public class Recipe {
 	public void setNotes(Notes notes) {
 		this.notes = notes;
 	}
+	/**
+	 * @return the ingredients
+	 */
+	public Set<Ingredient> getIngredients() {
+		return ingredients;
+	}
+	/**
+	 * @param ingredients the ingredients to set
+	 */
+	public void setIngredients(Set<Ingredient> ingredients) {
+		this.ingredients = ingredients;
+	}
+	/**
+	 * @return the difficulty
+	 */
+	public Difficulty getDifficulty() {
+		return difficulty;
+	}
+	/**
+	 * @param difficulty the difficulty to set
+	 */
+	public void setDifficulty(Difficulty difficulty) {
+		this.difficulty = difficulty;
+	}
+	
 	
 }

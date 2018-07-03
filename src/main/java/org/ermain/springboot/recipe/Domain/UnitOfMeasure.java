@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+
 
 /**
  * @author Ermain
@@ -24,7 +24,11 @@ public class UnitOfMeasure {
 	
 	//	@OneToOne
 	//	private Ingredient ingredient;
-
+	
+	
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////// Getters and Setters ////////////////////////////////////////////
 	/**
 	 * @return the id
 	 */
@@ -52,6 +56,5 @@ public class UnitOfMeasure {
 	public void setUom(String uom) {
 		this.uom = uom;
 	}
-	
 	
 }
