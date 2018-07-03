@@ -3,12 +3,15 @@
  */
 package org.ermain.springboot.recipe.Domain;
 
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
@@ -44,6 +47,17 @@ public class Recipe {
 	private String source;
 	private String url;
 	private String directions;
+	
+	/*
+	 * 	Here, the recipe owns the relationship between itself and the Ingredient.
+	 * There is also an established 1-to-many relationship between the Recipe and the ingredient.
+	 * (One recipe for many recipes)
+	 * 
+	 * The mappedBy property defines the property in the child class which maps it to the parent class.
+	 * Here, the set of ingredients will be stored in a property called recipe.
+	 */
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+	private Set<Ingredient> ingredients;
 	
 	/*
 	 * TODO: add a difficult property
@@ -166,6 +180,5 @@ public class Recipe {
 	public void setNotes(Notes notes) {
 		this.notes = notes;
 	}
-	
 	
 }
