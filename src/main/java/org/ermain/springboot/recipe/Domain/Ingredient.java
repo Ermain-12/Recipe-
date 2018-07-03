@@ -6,9 +6,12 @@ package org.ermain.springboot.recipe.Domain;
 import java.math.BigDecimal;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 /**
  * @author Ermain
@@ -24,9 +27,11 @@ public class Ingredient {
 	private String description;
 	private BigDecimal amount;
 	
+	@ManyToOne
 	private Recipe recipe;
 
-	
+	@OneToOne(fetch = FetchType.EAGER)
+	private UnitOfMeasure unitOfMeasure;
 	
 	/**
 	 * @return the id
@@ -82,6 +87,20 @@ public class Ingredient {
 	 */
 	public void setRecipe(Recipe recipe) {
 		this.recipe = recipe;
+	}
+
+	/**
+	 * @return the unitOfMeasure
+	 */
+	public UnitOfMeasure getUnitOfMeasure() {
+		return unitOfMeasure;
+	}
+
+	/**
+	 * @param unitOfMeasure the unitOfMeasure to set
+	 */
+	public void setUnitOfMeasure(UnitOfMeasure unitOfMeasure) {
+		this.unitOfMeasure = unitOfMeasure;
 	}
 	
 	
