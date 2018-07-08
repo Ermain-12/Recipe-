@@ -10,10 +10,14 @@ import org.ermain.springboot.recipe.Domain.Recipe;
 import org.ermain.springboot.recipe.Repository.RecipeRepository;
 import org.springframework.stereotype.Service;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @author Ermain
  *
  */
+// The @Slf4j annotation allows for logging/debugging in the application
+@Slf4j
 @Service
 public class RecipeServiceImpl implements RecipeService{
 
@@ -26,6 +30,7 @@ public class RecipeServiceImpl implements RecipeService{
     
 	@Override
 	public Set<Recipe> getRecipes() {
+		// log.debug("Service  running...");
 		// TODO Auto-generated method stub
 		Set<Recipe> recipeSet = new HashSet<>();
 		

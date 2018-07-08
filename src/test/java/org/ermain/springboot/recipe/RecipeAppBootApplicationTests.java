@@ -11,6 +11,7 @@ public class RecipeAppBootApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		
 	}
 
 }

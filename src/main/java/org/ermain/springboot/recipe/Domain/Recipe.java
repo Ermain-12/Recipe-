@@ -20,11 +20,14 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import lombok.Data;
+
 /**
  * @author Ermain
  *
  */
 
+@Data
 // Make sure that our class is picked up by the package-scan as an entity object
 @Entity
 public class Recipe {
